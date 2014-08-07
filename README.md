@@ -1,0 +1,4 @@
+vagrants
+========
+
+Vagrant box configurations.
