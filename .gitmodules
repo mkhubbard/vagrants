@@ -1,0 +1,12 @@
+[submodule "php-dev/salt/salt/formula/apache"]
+	path = php-dev/salt/salt/formula/apache
+	url = https://github.com/mkhubbard/apache-formula
+[submodule "php-dev/salt/salt/formula/php"]
+	path = php-dev/salt/salt/formula/php
+	url = https://github.com/mkhubbard/php-formula
+[submodule "php-dev/salt/salt/formula/mysql"]
+	path = php-dev/salt/salt/formula/mysql
+	url = https://github.com/mkhubbard/mysql-formula
+[submodule "php-dev/salt/salt/formula/git"]
+	path = php-dev/salt/salt/formula/git
+	url = https://github.com/mkhubbard/git-formula

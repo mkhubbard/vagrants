@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  
+  # Box settings
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.define "php-dev" do |vagrantphp| end
+  
+  # Networking settings
+  config.vm.hostname = "php-dev"
+  config.vm.network "forwarded_port", guest: 80, host: 80
+
+  # Shared folder settings
+  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder "./salt/salt", "/srv/salt"
+  config.vm.synced_folder "./salt/pillar", "/srv/pillar"
+  config.vm.synced_folder "./www", "/var/www/html", create: true
+
+  # VirtualBox settings
+  config.vm.provider "virtualbox" do |vb|  
+    vb.gui = false
+	vb.name = "php-dev"
+	vb.memory = 512
+	vb.cpus = 1
+  end  
+  
+  # Provisioning settnigs
+  config.vm.provision :salt do |salt|
+	salt.install_master = false	
+    salt.minion_config = "salt/config/minion"
+    salt.run_highstate = true
+	salt.colorize  = true
+	salt.log_level = "info"
+  end
+  
+end

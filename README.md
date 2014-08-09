@@ -1,4 +1,4 @@
-vagrants
+Vagrants
 ========
 
 Vagrant box configurations.
