@@ -3,8 +3,7 @@ Vagrants
 
 Vagrant box configurations.
 
-Cloning
-=====
+### Cloning ###
 
 This repository uses submodules to manage external dependencies on saltstack-formulas. To clone with, or update, submodules use the following:
 
