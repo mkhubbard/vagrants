@@ -6,7 +6,8 @@ include:
   - php.gd
   - php.json
   - php.mysql
-
+  - .php.composer
+  
 extend:
   apache-restart:
     module:
