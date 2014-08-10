@@ -17,14 +17,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant"
   config.vm.synced_folder "./salt/salt", "/srv/salt"
   config.vm.synced_folder "./salt/pillar", "/srv/pillar"
-  config.vm.synced_folder "./www", "/var/www/html", create: true
+  
+  if ENV['VAGRANT_PHP_DEV_WWW']  
+    config.vm.synced_folder ENV['VAGRANT_PHP_DEV_WWW'], "/var/www/html", create: false
+  else
+    config.vm.synced_folder "./www", "/var/www/html", create: true
+  end
 
   # VirtualBox settings
   config.vm.provider "virtualbox" do |vb|  
     vb.gui = false
 	vb.name = "php-dev"
-	vb.memory = 512
-	vb.cpus = 1
+	vb.memory = 2048
+	vb.cpus = 2
   end  
   
   # Provisioning settnigs

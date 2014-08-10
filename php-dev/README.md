@@ -20,4 +20,4 @@ Vagrant file for provisioning a PHP development server.
 
 ### Notes
 
-Vagrant will mount a "www" directory located next to the Vagrantfile to the default document root of "/var/www/html" on the guest. This directory will be created on the host if it does not already exist.
+If "VAGRANT_PHP_DEV_WWW" is defined in the environment this path will be mounted to the document root for the default site. Otherwise a "www" directory next to the Vagrantfile will be used and created if necessary.
