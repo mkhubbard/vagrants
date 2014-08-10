@@ -14,10 +14,10 @@ Vagrant file for provisioning a PHP development server.
  * Composer
  * MySQL
 
-### Usage ###
-
-	vagrant up
-
 ### Notes
 
-If "VAGRANT_PHP_DEV_WWW" is defined in the environment this path will be mounted to the document root for the default site. Otherwise a "www" directory next to the Vagrantfile will be used and created if necessary.
+The document root for the default site is set to "/srv/www".
+
+By default the Vagrantfile is configured to create (if not present) and mount a "www" directory to "/srv/www" on the guest. You may specify an alternate directory by defining an environemnt variable named "VAGRANT_PHP_DEV_WWW" containing the absolute path of the desired host directory.
+
+Additionally the default host configuration may be altered through the "apache.sls" pillar data in the "salt/pillar" directory.
