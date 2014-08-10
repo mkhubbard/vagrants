@@ -6,6 +6,7 @@ include:
   - php.gd
   - php.json
   - php.mysql
+  - php.pear
   - .php.composer
   
 extend:

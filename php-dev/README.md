@@ -10,6 +10,7 @@ Vagrant file for provisioning a PHP development server.
  * Git
  * Apache
  * PHP
+ * PEAR
  * Composer
  * MySQL
 
