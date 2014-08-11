@@ -6,6 +6,7 @@ include:
   - apache.php5    
   - php
   - php.gd
+  - php.intl
   - php.json
   - php.mysql
   - php.pear
