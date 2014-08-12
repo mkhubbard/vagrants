@@ -16,13 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Shared folder settings
   config.vm.synced_folder ".", "/vagrant"
   config.vm.synced_folder "./salt/salt", "/srv/salt"
-  config.vm.synced_folder "./salt/pillar", "/srv/pillar"
-  
-  if ENV['VAGRANT_PHP_DEV_WWW']  
-    config.vm.synced_folder ENV['VAGRANT_PHP_DEV_WWW'], "/srv/www", create: false
-  else
-    config.vm.synced_folder "./www", "/srv/www", create: true
-  end
+  config.vm.synced_folder "./salt/pillar", "/srv/pillar" 
 
   # VirtualBox settings
   config.vm.provider "virtualbox" do |vb|  

@@ -1,0 +1,14 @@
+{% set apache = salt['grains.filter_by']({
+    'Debian': {
+        'group': 'www-data',      
+        'vhostdir': '/etc/apache2/sites-available',
+        'default_site_conf': '000-default.conf',
+        'default_site_root': '/var/www/html',
+    },
+    'RedHat': {
+        'group': 'apache',
+        'vhostdir': '/etc/httpd/vhost.d',       
+        'default_site_conf': '000-default.conf',
+        'default_site_root': '/var/www/html',       
+    }
+}, merge=salt['pillar.get']('apache:lookup')) %}
