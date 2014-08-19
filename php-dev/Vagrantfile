@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   # Networking settings
   config.vm.hostname = "php-dev"
-  config.vm.network "forwarded_port", guest: 80, host: 80
+  config.vm.network "forwarded_port", guest: 80, host: 8000
 
   # Shared folder settings
   config.vm.synced_folder ".", "/vagrant"
