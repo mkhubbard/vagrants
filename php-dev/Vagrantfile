@@ -20,8 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if ENV['VAGRANT_PHP_DEV_SYNC']  
     config.vm.synced_folder ENV['VAGRANT_PHP_DEV_SYNC'], "/var/www/html", type: "rsync",
+      owner: 'www',
+      group: 'www',
       rsync__auto: false,
-      rsync__chown: false,
       rsync__exclude: ".git/"
   end
   
@@ -36,9 +37,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Provisioning settnigs
   config.vm.provision :salt do |salt|
 	salt.install_master = false	
-    salt.minion_config = "salt/config/minion"
-    salt.run_highstate = true
-	salt.colorize  = true
+	salt.minion_config = "salt/config/minion"
+	salt.run_highstate = true
+   	salt.colorize  = true
 	salt.log_level = "info"
   end
   
