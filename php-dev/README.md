@@ -23,6 +23,10 @@ Example port forward for Linux using iptables:
 
     iptables -t nat -I OUTPUT --src 0/0 --dst 127.0.0.1 -p tcp --dport 80 -j REDIRECT --to-ports 8000
 
+Example port forward for Windows:
+    
+    netsh interface portproxy add v4tov4 listenport=80 listenaddress=127.0.0.1 connectport=8000 connectaddress=127.0.0.1
+
 ### Document Root ###
     
 The default site document root is accessible over SFTP using the following credentials:
