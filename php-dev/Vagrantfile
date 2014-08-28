@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       owner: 'www',
       group: 'www',
       rsync__auto: false,
-      rsync__exclude: [ ".git/", ".idea/", ".cache", ".bash_history" ]
+      rsync__exclude: [ ".git/", ".idea/", ".cache", ".bash_history", ".viminfo", ".composer" ]
   end
   
   # VirtualBox settings
