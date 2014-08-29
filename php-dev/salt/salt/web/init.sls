@@ -10,7 +10,6 @@ include:
   - php.json
   - php.mysql
   - php.pear
-  - php.xdebug
   - .php.composer
   
 apache-default-site:
