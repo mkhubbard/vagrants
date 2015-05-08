@@ -1,14 +1,14 @@
 {% from "web/map.jinja" import apache with context %}
 
 include:
-  - apache.debian_full
+  - apache
   - apache.rewrite
   - apache.php5    
   - php
   - php.gd
   - php.intl
   - php.json
-  - php.mysql
+  - php.pgsql
   - php.pear
   - .php.composer
   
@@ -31,8 +31,8 @@ www:
 web-root-permissions:
   file.directory:
     - name: {{ apache.default_site_root }}
-    - user: www-data
-    - group: www-data
+    - user: {{ apache.group }}
+    - group: {{ apache.group }}
     - mode: 2775
     - makedirs: True
    
@@ -41,4 +41,4 @@ extend:
     module:
       - watch:
         - file: apache-default-site
-        - pkg: php*   
+        - pkg: php*

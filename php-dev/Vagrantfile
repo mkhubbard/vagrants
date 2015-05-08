@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   # Box settings
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "mhubbard/CentOS-7-x86_64"
   config.vm.define "php-dev" do |vagrantphp| end
   
   # Networking settings
@@ -18,13 +18,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./salt/salt", "/srv/salt"
   config.vm.synced_folder "./salt/pillar", "/srv/pillar" 
 
-  if ENV['VAGRANT_PHP_DEV_SYNC']  
-    config.vm.synced_folder ENV['VAGRANT_PHP_DEV_SYNC'], "/var/www/html", type: "rsync",
-      owner: 'www',
-      group: 'www',
-      rsync__auto: false,
-      rsync__exclude: [ ".git/", ".idea/", ".cache", ".bash_history", ".viminfo", ".composer" ]
-  end
+#  if ENV['VAGRANT_PHP_DEV_SYNC']  
+#    config.vm.synced_folder ENV['VAGRANT_PHP_DEV_SYNC'], "/var/www/html", type: "rsync",
+#      owner: 'www',
+#      group: 'www',
+#      rsync__auto: false,
+#      rsync__exclude: [ ".git/", ".idea/", ".cache", ".bash_history" ]
+#  end
   
   # VirtualBox settings
   config.vm.provider "virtualbox" do |vb|  

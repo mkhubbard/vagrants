@@ -1,13 +1,15 @@
 {% set apache = salt['grains.filter_by']({
     'Debian': {
+        'user': 'www-data',
         'group': 'www-data',      
         'vhostdir': '/etc/apache2/sites-available',
         'default_site_conf': '000-default.conf',
         'default_site_root': '/var/www/html',
     },
     'RedHat': {
+        'user': 'apache',
         'group': 'apache',
-        'vhostdir': '/etc/httpd/vhost.d',       
+        'vhostdir': '/etc/httpd/conf.d',       
         'default_site_conf': '000-default.conf',
         'default_site_root': '/var/www/html',       
     }
