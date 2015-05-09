@@ -1,0 +1,46 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  
+  # Box settings
+  config.vm.box = "mhubbard/centos6"
+  config.vm.define "php-dev-centos6" do |vagrantphp| end
+  
+  # Networking settings
+  config.vm.hostname = "php-dev-centos6"
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+
+  # Shared folder settings
+  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder "./salt/salt", "/srv/salt"
+  config.vm.synced_folder "./salt/pillar", "/srv/pillar" 
+
+#  if ENV['VAGRANT_PHP_DEV_SYNC']  
+#    config.vm.synced_folder ENV['VAGRANT_PHP_DEV_SYNC'], "/var/www/html", type: "rsync",
+#      owner: 'www',
+#      group: 'www',
+#      rsync__auto: false,
+#      rsync__exclude: [ ".git/", ".idea/", ".cache", ".bash_history" ]
+#  end
+  
+  # VirtualBox settings
+  config.vm.provider "virtualbox" do |vb|  
+    vb.gui = false
+	vb.name = "php-dev-centos6"
+	vb.memory = 2048
+	vb.cpus = 2
+  end  
+  
+  # Provisioning settnigs
+  config.vm.provision :salt do |salt|
+	salt.install_master = false	
+	salt.minion_config = "salt/config/minion"
+	salt.run_highstate = true
+   	salt.colorize  = true
+	salt.log_level = "info"
+  end
+  
+end

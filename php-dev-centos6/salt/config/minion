@@ -5,8 +5,8 @@ file_roots:
     - /srv/salt/
     - /srv/salt/formula/apache
     - /srv/salt/formula/git
+    - /srv/salt/formula/mysql
     - /srv/salt/formula/php
-    - /srv/salt/formula/postgres
     
 pillar_roots:
   base:
