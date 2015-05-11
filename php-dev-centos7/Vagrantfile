@@ -6,11 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   # Box settings
-  config.vm.box = "mhubbard/CentOS-7-x86_64"
-  config.vm.define "php-dev" do |vagrantphp| end
+  config.vm.box = "mhubbard/centos7"
+  config.vm.define "php-dev-centos7" do |vagrantphp| end
   
   # Networking settings
-  config.vm.hostname = "php-dev"
+  config.vm.hostname = "php-dev-centos7"
   config.vm.network "forwarded_port", guest: 80, host: 8000
 
   # Shared folder settings
@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # VirtualBox settings
   config.vm.provider "virtualbox" do |vb|  
     vb.gui = false
-	vb.name = "php-dev"
+	vb.name = "php-dev-centos7"
 	vb.memory = 2048
 	vb.cpus = 2
   end  

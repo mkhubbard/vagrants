@@ -11,7 +11,7 @@ include:
   - php.mysql
   - php.pgsql
   - php.pear
-  - .php.composer
+  - php.composer
   
 apache-default-site:
   file.managed:
