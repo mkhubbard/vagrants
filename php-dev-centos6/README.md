@@ -5,7 +5,7 @@ Vagrant file for provisioning a PHP development server.
 
 ### Software ###
 
- * [Ubuntu Server 64-bit 14.04 LTS](https://vagrantcloud.com/ubuntu/trusty64)
+ * [CentOS 6.6](https://atlas.hashicorp.com/mhubbard/boxes/centos6)
  * [Salt](http://saltstack.com)
  * [Git](http://git-scm.com)
  * [Apache](http://httpd.apache.org/)
@@ -33,7 +33,3 @@ The default site document root is accessible over SFTP using the following crede
 
     Username: www
     Password: www
-    
-If "VAGRANT_PHP_DEV_SYNC" is defined in the environment this path will be configured for synchronization 
-to the document root of the guest using the [rsync shared folder](https://docs.vagrantup.com/v2/synced-folders/rsync.html)
-feature. For guest to host synchronization consider [vagrant-rsync-back](https://github.com/smerrill/vagrant-rsync-back).    
