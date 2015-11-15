@@ -5,14 +5,15 @@ Vagrant file for provisioning a PHP development server.
 
 ### Software ###
 
- * [Ubuntu Server 64-bit 14.04 LTS](https://vagrantcloud.com/ubuntu/trusty64)
+ * [CentOS 7](https://vagrantcloud.com/mhubbard/boxes/centos7)
  * [Salt](http://saltstack.com)
  * [Git](http://git-scm.com)
- * [Apache](http://httpd.apache.org/)
+ * [Apache](http://httpd.apache.org)
  * [PHP](http://php.net)
+ * [Phalcon PHP](https://phalconphp.com)
  * [PEAR](http://pear.php.net)
  * [Composer](http://getcomposer.org)
- * [MySQL](http://www.mysql.com/) 
+ * [PostgreSQL](http://postgresql.org) 
 
 ### Networking ###
 
