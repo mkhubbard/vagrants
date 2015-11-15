@@ -14,3 +14,14 @@
         'default_site_root': '/var/www/html',       
     }
 }, merge=salt['pillar.get']('apache:lookup')) %}
+
+{% set php = salt['grains.filter_by']({
+    'Debian': {
+        'php_devel': 'php5-dev',        
+        'pcre_devel': 'libpcre3-dev'
+    },
+    'RedHat': {
+        'php_devel': 'php-devel',  
+        'pcre_devel': 'pcre-devel'    
+	}
+}, merge=salt['pillar.get']('php:lookup')) %}

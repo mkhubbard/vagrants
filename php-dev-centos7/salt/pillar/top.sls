@@ -2,5 +2,5 @@ base:
   '*':
     - apache
     - git
-    - mysql
+    - postgresql
     - php

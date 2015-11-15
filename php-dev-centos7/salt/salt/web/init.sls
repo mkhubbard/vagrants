@@ -12,6 +12,13 @@ include:
   - php.pgsql
   - php.pear
   - php.composer
+#  - .phalcon
+  
+php.timezone:
+  file.replace:
+    - name: /etc/php.ini
+    - pattern: ";date.timezone ="
+    - repl: "date.timezone = UTC"    
   
 apache-default-site:
   file.managed:
@@ -41,5 +48,5 @@ extend:
   apache-restart:
     module:
       - watch:
-        - file: apache-default-site
+        - file: apache-default-site        
         - pkg: php*

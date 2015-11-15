@@ -4,4 +4,4 @@ base:
     - common
     - git
     - web
-#    - db
+    - db

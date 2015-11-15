@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Networking settings
   config.vm.hostname = "php-dev-centos7"
   config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 5432, host: 15432
 
   # Shared folder settings
   config.vm.synced_folder ".", "/vagrant"
@@ -36,6 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   # Provisioning settnigs
   config.vm.provision :salt do |salt|
+	salt.bootstrap_options = '-F -c /tmp/ -P'
 	salt.install_master = false	
 	salt.minion_config = "salt/config/minion"
 	salt.run_highstate = true

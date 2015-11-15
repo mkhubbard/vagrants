@@ -7,6 +7,11 @@ curl:
   pkg:
     - name: curl
     - installed       
+
+bash-completion:
+  pkg:
+    - name: bash-completion
+    - installed
     
 {% if grains['os_family'] == 'RedHat' %}
 # Until the salt.module.firewalld is available this is the easiest way
